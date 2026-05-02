@@ -16,13 +16,15 @@ html{scroll-behavior:smooth;}
 
 header{
 position:fixed;width:100%;padding:15px 50px;
-display:flex;justify-content:space-between;
+display:flex;justify-content:space-between;align-items:center;
 background:rgba(15,15,26,0.9);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
 
-header a{color:#fff;margin-left:20px;text-decoration:none;}
+header strong{font-size:16px;}
+
+header a{color:#fff;margin-left:20px;text-decoration:none;font-size:14px;}
 header a:hover{color:#8b5cf6;}
 
 section{padding:120px 50px;min-height:100vh;}
@@ -38,14 +40,9 @@ justify-content:space-between;
 gap:40px;
 }
 
-.hero-text{
-max-width:500px;
-}
+.hero-text{max-width:500px;}
 
-.hero-text p{
-color:#aaa;
-margin-top:10px;
-}
+.hero-text p{color:#aaa;margin-top:10px;}
 
 /* typing */
 .typing{
@@ -78,9 +75,7 @@ border:2px solid #8b5cf6;
 transition:0.3s;
 }
 
-.hero-img img:hover{
-transform:scale(1.05);
-}
+.hero-img img:hover{transform:scale(1.05);}
 
 /* CARDS */
 .cards{
@@ -128,27 +123,62 @@ width:0;
 transition:width 1.5s ease;
 }
 
-/* RESPONSIVE */
-@media (max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
-}
-header{
-flex-direction:column;
-align-items:center;
-}
-section{
-padding:100px 20px;
-}
-h1{font-size:28px;}
-}
-
 /* FOOTER */
 footer{
 text-align:center;
 padding:20px;
 border-top:1px solid #2a2a40;
+}
+
+/* ===== RESPONSIVE MEJORADO ===== */
+@media (max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+
+  header nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+  }
+
+  section{
+    padding:100px 20px;
+  }
+
+  .hero{
+    flex-direction:column;
+    justify-content:center;
+    gap:20px;
+    padding-top:80px;
+  }
+
+  .hero-text{
+    text-align:center;
+  }
+
+  h1{
+    font-size:26px;
+  }
+
+  /* typing corregido en móvil */
+  .typing{
+    white-space:normal;
+    border-right:none;
+  }
+
+  .btn{
+    margin:15px auto;
+  }
+
+  .hero-img img{
+    width:220px;
+    height:220px;
+  }
 }
 </style>
 </head>
@@ -176,7 +206,6 @@ border-top:1px solid #2a2a40;
 <a href="mailto:joaquinnvargas2008@gmail.com" class="btn">
 Contactarme
 </a>
-
 </div>
 
 <div class="hero-img" data-aos="fade-left">
@@ -290,7 +319,7 @@ function escribir(){
 if(i<texto.length){
 document.querySelector(".typing").textContent+=texto.charAt(i);
 i++;
-setTimeout(escribir,50);
+setTimeout(escribir,40);
 }
 }
 escribir();
